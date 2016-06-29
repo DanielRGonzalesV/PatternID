@@ -14,8 +14,11 @@ public class Login extends PagesPivotal {
     @FindBy(id = "credentials_password")
     private WebElement passwordTextField;
 
-    @FindBy(className = "app_signup_submit_button_button")
+    @FindBy(className = "app_signin_action_button")
     private WebElement sigInButton;
+
+    @FindBy(className = "app_signin_action_button")
+    private WebElement nextButton;
 
     public void setUserNameTextField(String userName) {
         userNameTextField.clear();
@@ -25,6 +28,10 @@ public class Login extends PagesPivotal {
     public void setPasswordTextField(String password) {
         passwordTextField.clear();
         passwordTextField.sendKeys(password);
+    }
+
+    public void clickNextButton() {
+        nextButton.click();
     }
 
     public Dashboard clickSignInButton() {

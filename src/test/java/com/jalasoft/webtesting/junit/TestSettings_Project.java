@@ -1,5 +1,10 @@
-package com.jalasoft.webtesting;
+package com.jalasoft.webtesting.junit;
 
+import com.jalasoft.webtesting.Dashboard;
+import com.jalasoft.webtesting.FormCreateProject;
+import com.jalasoft.webtesting.Login;
+import com.jalasoft.webtesting.Project;
+import com.jalasoft.webtesting.Settings_Project;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +20,7 @@ public class TestSettings_Project {
     public void setUp() throws Exception {
 
 //        PivotalHome pivotalHome = new PivotalHome();
-//        Login login = pivotalHome.clickSignInLink();
+//        Login2 login = pivotalHome.clickSignInLink();
 //        login.setUserNameTextField("walter_mercado_jala");
 //        login.setPasswordTextField("P@ssw0rd");
 //        dashboard = login.clickSignInButton();

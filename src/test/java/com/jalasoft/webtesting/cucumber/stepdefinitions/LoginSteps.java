@@ -1,64 +1,67 @@
-package com.jalasoft.webtesting;
+package com.jalasoft.webtesting.cucumber.stepdefinitions;
 
-import cucumber.api.java.After;
+import com.jalasoft.webtesting.Dashboard;
+import com.jalasoft.webtesting.Login;
+import com.jalasoft.webtesting.PivotalHome;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
-public class TestLoginCucumber {
+public class LoginSteps {
 
     private PivotalHome pivotalHome;
     private Login login;
     private Dashboard dashboard;
 
+    public Dashboard getDashboard() {
+        return dashboard;
+    }
 
     @Given("^I want login to Pivotal page$")
-    public void iWantLoginToPivotalPage() throws Throwable {
+    public void iWantLoginToPivotalPage() {
         pivotalHome = new PivotalHome();
     }
 
     @And("^It show the login form$")
-    public void itShowTheLoginForm() throws Throwable {
-
+    public void itShowTheLoginForm() {
     }
 
     //CLick singin button
     @When("^I click on the SigIn button$")
-    public void iClickTheSigInButton() throws Throwable {
+    public void iClickTheSigInButton() {
         login = pivotalHome.clickSignInLink();
     }
 
     //type in our username
     @When("^I type (.*) in the username input field$")
-    public void enterUsername(String user) throws Exception {
-        login.setUserNameTextField("walter_mercado_jala");
+    public void enterUsername(String user) {
+        login.setUserNameTextField(user);
+    }
 
+    @And("^I click the next button$")
+    public void iClickTheNextButton() {
+        login.clickNextButton();
     }
 
     //type in our password
     @When("^I type (.*) in the password input field$")
-    public void enterPassword(String password) throws Exception {
-        login.setPasswordTextField("P@ssw0rd");
+    public void enterPassword(String password) {
+        login.setPasswordTextField(password);
     }
 
     //click the login button
     @When("^I click the login button$")
-    public void clickLogin() throws Exception {
+    public void clickLogin() {
         dashboard = login.clickSignInButton();
     }
 
-
     @Then("^It is expected that the display name equals (.*)$")
-    public void itIsExpectedThatTheDisplayNameEqualsWALTER_MERCADO_JALA(String usernameDisplay) throws Throwable {
+    public void itIsExpectedThatTheDisplayNameEquals(String usernameDisplay) throws Throwable {
         Assert.assertEquals(usernameDisplay, dashboard.getUserNameText());
     }
 
 
-    @After
-    public void cleanUp() {
-        //driver.quit();
-    }
 
 }

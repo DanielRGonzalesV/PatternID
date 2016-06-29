@@ -1,5 +1,10 @@
-package com.jalasoft.webtesting;
+package com.jalasoft.webtesting.junit;
 
+import com.jalasoft.webtesting.Dashboard;
+import com.jalasoft.webtesting.FormCreateProject;
+import com.jalasoft.webtesting.Login;
+import com.jalasoft.webtesting.PivotalHome;
+import com.jalasoft.webtesting.Project;
 import org.junit.Assert;
 import org.junit.Test;
 
